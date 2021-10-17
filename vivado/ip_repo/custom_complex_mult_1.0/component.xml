@@ -1,0 +1,916 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spirit:component xmlns:xilinx="http://www.xilinx.com" xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <spirit:vendor>xilinx.com</spirit:vendor>
+  <spirit:library>user</spirit:library>
+  <spirit:name>custom_complex_mult</spirit:name>
+  <spirit:version>1.0</spirit:version>
+  <spirit:busInterfaces>
+    <spirit:busInterface>
+      <spirit:name>S00_AXIS</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="axis" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="axis_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TDATA</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s00_axis_tdata</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TSTRB</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s00_axis_tstrb</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TLAST</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s00_axis_tlast</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TVALID</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s00_axis_tvalid</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TREADY</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s00_axis_tready</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>WIZ_DATA_WIDTH</spirit:name>
+          <spirit:value spirit:format="long" spirit:id="BUSIFPARAM_VALUE.S00_AXIS.WIZ_DATA_WIDTH" spirit:choiceRef="choice_list_6fc15197">32</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>M00_AXIS</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="axis" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="axis_rtl" spirit:version="1.0"/>
+      <spirit:master/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TDATA</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>m00_axis_tdata</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TSTRB</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>m00_axis_tstrb</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TLAST</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>m00_axis_tlast</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TVALID</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>m00_axis_tvalid</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TREADY</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>m00_axis_tready</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>WIZ_DATA_WIDTH</spirit:name>
+          <spirit:value spirit:format="long" spirit:id="BUSIFPARAM_VALUE.M00_AXIS.WIZ_DATA_WIDTH" spirit:choiceRef="choice_list_6fc15197">32</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>M00_AXIS_RST</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>RST</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>m00_axis_aresetn</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>POLARITY</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.M00_AXIS_RST.POLARITY" spirit:choiceRef="choice_list_9d8b0d81">ACTIVE_LOW</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>M00_AXIS_CLK</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>CLK</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>m00_axis_aclk</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>ASSOCIATED_BUSIF</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.M00_AXIS_CLK.ASSOCIATED_BUSIF">M00_AXIS</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>ASSOCIATED_RESET</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.M00_AXIS_CLK.ASSOCIATED_RESET">m00_axis_aresetn</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>S00_AXIS_RST</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>RST</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s00_axis_aresetn</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>POLARITY</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.S00_AXIS_RST.POLARITY" spirit:choiceRef="choice_list_9d8b0d81">ACTIVE_LOW</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>S00_AXIS_CLK</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>CLK</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s00_axis_aclk</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>ASSOCIATED_BUSIF</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.S00_AXIS_CLK.ASSOCIATED_BUSIF">S00_AXIS</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>ASSOCIATED_RESET</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.S00_AXIS_CLK.ASSOCIATED_RESET">s00_axis_aresetn</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+    </spirit:busInterface>
+  </spirit:busInterfaces>
+  <spirit:model>
+    <spirit:views>
+      <spirit:view>
+        <spirit:name>xilinx_verilogsynthesis</spirit:name>
+        <spirit:displayName>Verilog Synthesis</spirit:displayName>
+        <spirit:envIdentifier>verilogSource:vivado.xilinx.com:synthesis</spirit:envIdentifier>
+        <spirit:language>verilog</spirit:language>
+        <spirit:modelName>custom_complex_mult_v1_0</spirit:modelName>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_verilogsynthesis_xilinx_com_ip_cmpy_6_0__ref_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_verilogsynthesis_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>viewChecksum</spirit:name>
+            <spirit:value>86767027</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:view>
+      <spirit:view>
+        <spirit:name>xilinx_verilogbehavioralsimulation</spirit:name>
+        <spirit:displayName>Verilog Simulation</spirit:displayName>
+        <spirit:envIdentifier>verilogSource:vivado.xilinx.com:simulation</spirit:envIdentifier>
+        <spirit:language>verilog</spirit:language>
+        <spirit:modelName>custom_complex_mult_v1_0</spirit:modelName>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_verilogbehavioralsimulation_xilinx_com_ip_cmpy_6_0__ref_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_verilogbehavioralsimulation_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>viewChecksum</spirit:name>
+            <spirit:value>86767027</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:view>
+      <spirit:view>
+        <spirit:name>xilinx_xpgui</spirit:name>
+        <spirit:displayName>UI Layout</spirit:displayName>
+        <spirit:envIdentifier>:vivado.xilinx.com:xgui.ui</spirit:envIdentifier>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_xpgui_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>viewChecksum</spirit:name>
+            <spirit:value>a4f5aaa5</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:view>
+      <spirit:view>
+        <spirit:name>bd_tcl</spirit:name>
+        <spirit:displayName>Block Diagram</spirit:displayName>
+        <spirit:envIdentifier>:vivado.xilinx.com:block.diagram</spirit:envIdentifier>
+        <spirit:fileSetRef>
+          <spirit:localName>bd_tcl_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>viewChecksum</spirit:name>
+            <spirit:value>16328387</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:view>
+    </spirit:views>
+    <spirit:ports>
+      <spirit:port>
+        <spirit:name>m00_axis_tdata</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_M00_AXIS_TDATA_WIDTH&apos;)) - 1)">63</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>m00_axis_tstrb</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_M00_AXIS_TDATA_WIDTH&apos;)) / 8) - 1)">7</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>m00_axis_tlast</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>m00_axis_tvalid</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>m00_axis_tready</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>bram_addr</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.BRAM_DEPTH_BITS&apos;)) - 1)">9</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>bram_datain</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_M00_AXIS_TDATA_WIDTH&apos;)) - 1)">63</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>m00_axis_aclk</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>m00_axis_aresetn</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s00_axis_tdata</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_S00_AXIS_TDATA_WIDTH&apos;)) - 1)">95</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s00_axis_tstrb</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_S00_AXIS_TDATA_WIDTH&apos;)) / 8) - 1)">11</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s00_axis_tlast</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s00_axis_tvalid</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s00_axis_tready</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s00_axis_aclk</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s00_axis_aresetn</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+    </spirit:ports>
+    <spirit:modelParameters>
+      <spirit:modelParameter xsi:type="spirit:nameValueTypeType" spirit:dataType="integer">
+        <spirit:name>C_M00_AXIS_TDATA_WIDTH</spirit:name>
+        <spirit:displayName>C M00 AXIS TDATA WIDTH</spirit:displayName>
+        <spirit:description>Width of S_AXIS address bus. The slave accepts the read and write addresses of width C_M_AXIS_TDATA_WIDTH.</spirit:description>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_M00_AXIS_TDATA_WIDTH" spirit:order="3" spirit:rangeType="long">64</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>C_S00_AXIS_TDATA_WIDTH</spirit:name>
+        <spirit:displayName>C S00 AXIS TDATA WIDTH</spirit:displayName>
+        <spirit:description>AXI4Stream sink: Data Width</spirit:description>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_S00_AXIS_TDATA_WIDTH" spirit:order="5" spirit:rangeType="long">96</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>BRAM_DEPTH_BITS</spirit:name>
+        <spirit:displayName>Bram Depth Bits</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.BRAM_DEPTH_BITS">10</spirit:value>
+      </spirit:modelParameter>
+    </spirit:modelParameters>
+  </spirit:model>
+  <spirit:choices>
+    <spirit:choice>
+      <spirit:name>choice_list_165ed04b</spirit:name>
+      <spirit:enumeration>64</spirit:enumeration>
+    </spirit:choice>
+    <spirit:choice>
+      <spirit:name>choice_list_5791f2f2</spirit:name>
+      <spirit:enumeration>96</spirit:enumeration>
+    </spirit:choice>
+    <spirit:choice>
+      <spirit:name>choice_list_6fc15197</spirit:name>
+      <spirit:enumeration>32</spirit:enumeration>
+    </spirit:choice>
+    <spirit:choice>
+      <spirit:name>choice_list_9d8b0d81</spirit:name>
+      <spirit:enumeration>ACTIVE_HIGH</spirit:enumeration>
+      <spirit:enumeration>ACTIVE_LOW</spirit:enumeration>
+    </spirit:choice>
+  </spirit:choices>
+  <spirit:fileSets>
+    <spirit:fileSet>
+      <spirit:name>xilinx_verilogsynthesis_view_fileset</spirit:name>
+      <spirit:file>
+        <spirit:name>src/cmpy_0/cmpy_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>hdl/custom_complex_mult_v1_0_S00_AXIS.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>hdl/custom_complex_mult_v1_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>CHECKSUM_c4cd8b37</spirit:userFileType>
+      </spirit:file>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_verilogsynthesis_xilinx_com_ip_cmpy_6_0__ref_view_fileset</spirit:name>
+      <spirit:vendorExtensions>
+        <xilinx:subCoreRef>
+          <xilinx:componentRef xilinx:vendor="xilinx.com" xilinx:library="ip" xilinx:name="cmpy" xilinx:version="6.0">
+            <xilinx:mode xilinx:name="create_mode"/>
+          </xilinx:componentRef>
+        </xilinx:subCoreRef>
+      </spirit:vendorExtensions>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_verilogbehavioralsimulation_view_fileset</spirit:name>
+      <spirit:file>
+        <spirit:name>src/cmpy_0/cmpy_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>hdl/custom_complex_mult_v1_0_S00_AXIS.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>hdl/custom_complex_mult_v1_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_verilogbehavioralsimulation_xilinx_com_ip_cmpy_6_0__ref_view_fileset</spirit:name>
+      <spirit:vendorExtensions>
+        <xilinx:subCoreRef>
+          <xilinx:componentRef xilinx:vendor="xilinx.com" xilinx:library="ip" xilinx:name="cmpy" xilinx:version="6.0">
+            <xilinx:mode xilinx:name="create_mode"/>
+          </xilinx:componentRef>
+        </xilinx:subCoreRef>
+      </spirit:vendorExtensions>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_xpgui_view_fileset</spirit:name>
+      <spirit:file>
+        <spirit:name>xgui/custom_complex_mult_v1_0.tcl</spirit:name>
+        <spirit:fileType>tclSource</spirit:fileType>
+        <spirit:userFileType>CHECKSUM_a4f5aaa5</spirit:userFileType>
+        <spirit:userFileType>XGUI_VERSION_2</spirit:userFileType>
+      </spirit:file>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>bd_tcl_view_fileset</spirit:name>
+      <spirit:file>
+        <spirit:name>bd/bd.tcl</spirit:name>
+        <spirit:fileType>tclSource</spirit:fileType>
+      </spirit:file>
+    </spirit:fileSet>
+  </spirit:fileSets>
+  <spirit:description>Complex multiplier with BRAM and AXI interfaces</spirit:description>
+  <spirit:parameters>
+    <spirit:parameter>
+      <spirit:name>C_M00_AXIS_TDATA_WIDTH</spirit:name>
+      <spirit:displayName>C M00 AXIS TDATA WIDTH</spirit:displayName>
+      <spirit:description>Width of S_AXIS address bus. The slave accepts the read and write addresses of width C_M_AXIS_TDATA_WIDTH.</spirit:description>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_M00_AXIS_TDATA_WIDTH" spirit:choiceRef="choice_list_165ed04b" spirit:order="3">64</spirit:value>
+      <spirit:vendorExtensions>
+        <xilinx:parameterInfo>
+          <xilinx:enablement>
+            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.C_M00_AXIS_TDATA_WIDTH">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:parameterInfo>
+      </spirit:vendorExtensions>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>C_S00_AXIS_TDATA_WIDTH</spirit:name>
+      <spirit:displayName>C S00 AXIS TDATA WIDTH</spirit:displayName>
+      <spirit:description>AXI4Stream sink: Data Width</spirit:description>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_S00_AXIS_TDATA_WIDTH" spirit:choiceRef="choice_list_5791f2f2" spirit:order="5">96</spirit:value>
+      <spirit:vendorExtensions>
+        <xilinx:parameterInfo>
+          <xilinx:enablement>
+            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.C_S00_AXIS_TDATA_WIDTH">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:parameterInfo>
+      </spirit:vendorExtensions>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>Component_Name</spirit:name>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Component_Name" spirit:order="1">custom_complex_mult_v1_0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>BRAM_DEPTH_BITS</spirit:name>
+      <spirit:displayName>Bram Depth Bits</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.BRAM_DEPTH_BITS">10</spirit:value>
+    </spirit:parameter>
+  </spirit:parameters>
+  <spirit:vendorExtensions>
+    <xilinx:coreExtensions>
+      <xilinx:supportedFamilies>
+        <xilinx:family xilinx:lifeCycle="Pre-Production">zynq</xilinx:family>
+      </xilinx:supportedFamilies>
+      <xilinx:taxonomies>
+        <xilinx:taxonomy>AXI_Peripheral</xilinx:taxonomy>
+      </xilinx:taxonomies>
+      <xilinx:displayName>custom complex mult</xilinx:displayName>
+      <xilinx:coreRevision>16</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2021-09-10T21:37:20Z</xilinx:coreCreationDateTime>
+      <xilinx:tags>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1059c8c7_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7239e4d5_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@34f2f313_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@18aafb27_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4d04a8d0_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4cbd70ca_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@30529cd9_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3c125293_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5bd7b744_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4e0e8308_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@72bbd71c_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5cb5282f_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@844d6cc_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@260d77b8_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7ed46c1d_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5a19f2cb_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@118b6e25_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@19bb7a63_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5bd1d0fd_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@9943dae_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4d1e854d_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@111f8add_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@787b9072_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@c09978e_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@120caa58_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@22da1427_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@75094f26_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@354b148a_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2e80920b_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6a88019d_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@55ee7054_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@e77a153_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7f7c612d_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1fdb3435_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3bb6c70a_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@69092453_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7e34b68d_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4845775f_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7150998f_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@58acee4_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@a3ae161_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@15b70fc_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@9c3a309_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@30ea1be5_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@a3a60bd_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5e04e0dc_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6c0f7ffe_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6f24be8c_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3d90b7ee_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2ce7b185_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7a041c45_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4f42a8c9_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@32a0a40b_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@61914ae8_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@46844670_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@675e66b1_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@485b1fb3_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@422362df_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@301c859c_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@91110f2_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1a03e74e_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5fb1ec67_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7f7b7a7f_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@11ea793c_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@44f8aa59_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1aa31ef5_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@455bc78c_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@22c3e448_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1720beb1_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4e56c3a8_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@55865c31_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@8870e07_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2045de6a_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4254850d_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3eb6c177_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1dd0fe94_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@388c4781_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1a20b448_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@48c0a915_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@678de70e_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@56e79433_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@50e7059c_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@e415573_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5385f648_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@38c5b6e6_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@428b3830_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@22cda7f6_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@26bcd93d_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2807fe92_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4232c67a_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@43342296_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4597a454_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4f68ab30_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6b9d39b1_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7d06b1b9_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@78eada2b_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1820e471_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2b13352d_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@75a7849b_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@443e941f_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@64d44a8b_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3618f7be_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@40654997_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3ca1714e_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@41956079_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@138196d6_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@39eaeb8d_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6c8aad00_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4a5fc1e5_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4fe027bb_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@35f4e837_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@42ae0280_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4a537b3f_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4d175a00_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@ae33ea9_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@242dba10_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@75c0c61f_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2eb6478_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@40d2f96f_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4369598c_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3842d744_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6904da7_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7793a68_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@11084d75_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6526ac97_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@72f9e1f8_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6d8799ea_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3031f4f8_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6296b3f7_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6588feea_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@603050f6_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3167db5c_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@69bb4be1_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@115761f9_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1557592e_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@b9c6f1f_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@23c4cf92_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@61e0e73e_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@395f9840_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@716d26e2_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@61f8675e_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@226ec094_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7c368bdb_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@48ae434_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@651a142a_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@75bdfcc2_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6c708e18_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4f00a4a7_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@447f5946_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@401aba6_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@79022587_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5494bc6f_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4c84dda8_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@17674e40_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@a088c63_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@40d996ed_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5a561222_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4b6539d6_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1f5832b6_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6a637be9_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5fb2fd_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2b3e6312_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7b6db240_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2df87551_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@382090e9_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7efaa771_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@653fa463_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@18602fbb_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4b2634fb_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6d07adb9_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3735e356_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3aed67d6_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@32cff79d_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@22aef6df_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@521d6adc_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6a517e64_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1a37b793_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@d3c792c_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@24e1c974_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1c6ec710_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@46b93a7_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@8abdc2c_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6c9a6f5f_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@282e8a14_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@45b95dd2_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@51aed0bd_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7b193279_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@777400bb_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@72dade82_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@8b492d7_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2b68dd0b_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6cca130_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2a3a3d72_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7cf94887_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@21020ba8_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@215cf3bd_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@364d8dae_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@52de3ea0_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6e4947a_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@64b0a8cb_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5293d4fb_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3570ed64_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7ef4d9b7_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@71f5e967_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@57944352_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@186b8a65_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@640dc11e_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@26e89ca4_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5c86eb6c_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@47a9cac8_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1c0738ba_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@22ac5deb_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5a297c89_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6fc2faba_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@14d55137_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6755989e_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@f67e010_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@44c82f2d_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3b53bc76_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7657187_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6abdedf_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2cedd611_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3a5c4aec_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2ea3e7b_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@557d6b7d_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@38a5d95b_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7c8b0d13_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@73b55067_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2da992dd_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@14bd3c56_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@53ee61fb_ARCHIVE_LOCATION">d:/Pi-Lab/sounder_fpga/vivado/ip_repo/custom_complex_mult_1.0</xilinx:tag>
+      </xilinx:tags>
+    </xilinx:coreExtensions>
+    <xilinx:packagingInfo>
+      <xilinx:xilinxVersion>2018.3</xilinx:xilinxVersion>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="29a15928"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="ae077172"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="6bc277d7"/>
+      <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="ca2ffbdf"/>
+      <xilinx:checksum xilinx:scope="parameters" xilinx:value="87913c6f"/>
+    </xilinx:packagingInfo>
+  </spirit:vendorExtensions>
+</spirit:component>
